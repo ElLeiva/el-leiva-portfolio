@@ -1,50 +1,167 @@
-/* Typography */
+/* =====================
+   BASE TYPOGRAPHY
+   ===================== */
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0 2rem;
+    padding: 0 1rem;
     background-color: #fdfdfd;
     color: #111;
 }
 
-/* Headings */
 h1, h2, h3 {
     font-family: 'Segoe UI', sans-serif;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin: 1.5rem 0 0.5rem;
 }
 
-/* Sections */
+/* =====================
+   LAYOUT
+   ===================== */
+
 section {
     margin-bottom: 2rem;
 }
 
-/* Lists */
-ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+/* =====================
+   GRID
+   ===================== */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
 }
 
-/* Links */
-a {
-    color: #1a73e8;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+/* =====================
+   CARD (GRID ITEM)
+   ===================== */
+
+.grid-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Figures & Media */
-figure {
-    margin: 1rem 0;
+.grid-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-figure img, figure video {
+
+/* Media inside cards */
+.grid-item img,
+.grid-item video,
+.grid-item audio {
     max-width: 100%;
-    height: auto;
+    border-radius: 6px;
 }
 
-/* Footer */
+/* =====================
+   TEXT INSIDE CARDS
+   ===================== */
+
+.grid-item h2,
+.grid-item h3 {
+    margin: 0.25rem 0;
+}
+
+.grid-item p {
+    margin: 0;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+
+.play-button {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.play-button:hover {
+    background-color: #222;
+}
+
+/* =====================
+   EXPANDABLE CONTENT
+   ===================== */
+
+.expandable {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.expandable.show {
+    max-height: 2000px; /* intentionally large */
+    opacity: 1;
+}
+
+/* Nested grid inside expanded content */
+.inner-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* =====================
+   MODAL STATE
+   ===================== */
+
+.grid-item.expanded {
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 1200px;
+    max-height: 90vh;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Scrollable modal content */
+.modal-scroll {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+/* =====================
+   MODAL BACKDROP
+   ===================== */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+
 footer {
     margin-top: 3rem;
     padding-top: 1rem;
@@ -53,63 +170,37 @@ footer {
     text-align: center;
 }
 
-/* Grid container for projects, prototypes, artwork, audio, etc. */
-.grid-container {
-    display: grid;
-    gap: 2rem; /* space between items */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    align-items: start;
-    margin-top: 1rem;
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Individual item cards */
-.grid-item {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+@media (min-width: 601px) and (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.grid-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+@media (max-width: 600px) {
+    /* Prevent scroll hijacking on mobile */
+    .modal-scroll {
+        overflow-y: visible;
+        max-height: none;
+    }
 }
 
-/* Media in grid items */
-.grid-item img,
-.grid-item video,
-.grid-item audio {
-    max-width: 100%;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+@media (max-width: 600px) {
+    .grid-item.expanded .modal-scroll {
+        overflow-y: auto;
+        max-height: 90vh;
+    }
 }
 
-/* Titles and descriptions */
-.grid-item h2, 
-.grid-item h3 {
-    margin: 0.5rem 0;
+@media (max-width: 600px) {
+    .play-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.grid-item p {
-    flex-grow: 1; /* pushes buttons down */
-}
-
-/* Buttons */
-.grid-item a.play-button {
-    text-align: center;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    background-color: #1a73e8;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-}
-.grid-item a.play-button:hover {
-    background-color: #1558b0;
-}
