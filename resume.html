@@ -21,12 +21,9 @@
   <article class="grid-item">
     <div class="modal-scroll">
       <h2>Profile</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'profile-more')">
+      <button class="play-button" onclick="toggleExpand(this, 'profile-more')">
         ▶ View More
       </button>
-
       <div id="profile-more" class="expandable">
         <div class="inner-grid">
           <p>
@@ -43,36 +40,25 @@
   <article class="grid-item">
     <div class="modal-scroll">
       <h2>Education</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'education-more')">
+      <button class="play-button" onclick="toggleExpand(this, 'education-more')">
         ▶ View More
       </button>
-
       <div id="education-more" class="expandable">
         <div class="inner-grid">
-          <p>
-            <strong>Manuel Belgrano High School – Villa María</strong><br>
-            Bachelor’s Degree in Economics and Administration (2024)
-          </p>
-          <p>
-            <strong>Upcoming:</strong> Programmer Degree (starting March)
-          </p>
+          <p><strong>Manuel Belgrano High School</strong> — Economics & Administration (2024)</p>
+          <p><strong>Upcoming:</strong> Programmer Degree (March)</p>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- TECH SKILLS -->
+  <!-- SKILLS -->
   <article class="grid-item">
     <div class="modal-scroll">
       <h2>Technical Skills</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'skills-more')">
+      <button class="play-button" onclick="toggleExpand(this, 'skills-more')">
         ▶ View More
       </button>
-
       <div id="skills-more" class="expandable">
         <div class="inner-grid">
           <ul>
@@ -86,117 +72,48 @@
     </div>
   </article>
 
-  <!-- PROJECTS -->
-  <article class="grid-item">
-    <div class="modal-scroll">
-      <h2>Projects</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'projects-more')">
-        ▶ View More
-      </button>
-
-      <div id="projects-more" class="expandable">
-        <div class="inner-grid">
-          <p>
-            Small games, prototypes, and tools.<br>
-            <a href="index.html">View full portfolio</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <!-- EXPERIENCE -->
-  <article class="grid-item">
-    <div class="modal-scroll">
-      <h2>Experience</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'experience-more')">
-        ▶ View More
-      </button>
-
-      <div id="experience-more" class="expandable">
-        <div class="inner-grid">
-          <p>
-            <strong>Administrative Assistant (Remote)</strong><br>
-            App-based platform
-          </p>
-          <ul>
-            <li>Data handling and basic database tasks</li>
-            <li>Use of digital tools and internal systems</li>
-            <li>Remote communication and task organization</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <!-- BACKGROUND -->
-  <article class="grid-item">
-    <div class="modal-scroll">
-      <h2>Background</h2>
-      <button class="play-button"
-              aria-expanded="false"
-              onclick="toggleExpand(this, 'background-more')">
-        ▶ View More
-      </button>
-
-      <div id="background-more" class="expandable">
-        <div class="inner-grid">
-          <ul>
-            <li>Argentine Mathematics Olympiad (participant)</li>
-            <li>Radio workshop (3 years – announcer)</li>
-            <li>Programming workshop (Python, JS, HTML)</li>
-            <li>First Aid (CPR & Heimlich)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
-
 </section>
 
 <script>
 let savedScrollY = 0;
 let active = null;
 
+function isMobile() {
+  return window.matchMedia('(max-width: 600px)').matches;
+}
+
 function toggleExpand(button, id) {
   const item = button.closest('.grid-item');
   const content = document.getElementById(id);
+  const isOpen = content.classList.contains('show');
 
-  if (item.classList.contains('expanded')) {
-    closeModal();
+  /* ===== MOBILE: INLINE ===== */
+  if (isMobile()) {
+    content.classList.toggle('show');
+    button.textContent = isOpen ? '▶ View More' : '▼ Show Less';
+
+    if (!isOpen) {
+      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     return;
   }
 
-  // Save page scroll
-  savedScrollY = window.scrollY;
+  /* ===== DESKTOP: MODAL ===== */
+  if (active) closeModal();
 
-  // Lock page scroll
+  savedScrollY = window.scrollY;
   document.body.style.position = 'fixed';
   document.body.style.top = `-${savedScrollY}px`;
   document.body.style.width = '100%';
 
-  // Hide other cards
   document.querySelectorAll('.grid-item').forEach(i => {
     if (i !== item) i.style.display = 'none';
   });
 
-  // Activate modal
   item.classList.add('expanded');
   content.classList.add('show');
   button.textContent = '▼ Show Less';
-  button.setAttribute('aria-expanded', 'true');
 
-  // Reset modal scroll (CRITICAL for mobile)
-  const scrollContainer = item.querySelector('.modal-scroll');
-  if (scrollContainer) {
-    scrollContainer.scrollTop = 0;
-  }
-
-  // Backdrop
   const backdrop = document.createElement('div');
   backdrop.className = 'modal-backdrop';
   backdrop.onclick = closeModal;
@@ -211,7 +128,6 @@ function closeModal() {
   active.item.classList.remove('expanded');
   active.content.classList.remove('show');
   active.button.textContent = '▶ View More';
-  active.button.setAttribute('aria-expanded', 'false');
 
   document.querySelectorAll('.grid-item').forEach(i => {
     i.style.display = 'block';
@@ -219,7 +135,6 @@ function closeModal() {
 
   document.querySelector('.modal-backdrop')?.remove();
 
-  // Restore page scroll
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.width = '';
@@ -235,17 +150,7 @@ document.addEventListener('keydown', e => {
 
 <footer>
   <p><a href="contact.html">Contact</a></p>
-  <p>
-    <a href="assets/printable-resume/resume.html" target="_blank">
-      Printable resume (PDF-friendly)
-    </a>
-  </p>
-  <p>
-    Built and maintained by El Leiva ·
-    <a href="https://github.com/ElLeiva/el-leiva-portfolio" target="_blank">
-      Source on GitHub
-    </a>
-  </p>
+  <p>Built and maintained by El Leiva</p>
 </footer>
 
 </body>
