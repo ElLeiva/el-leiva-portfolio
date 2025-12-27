@@ -2,360 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santiago Leiva — Resume</title>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    /* MAIN GRID */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .grid-item {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .grid-item img {
-      max-width: 100%;
-      border-radius: 5px;
-      display: block;
-      margin: 10px auto;
-    }
-
-    .play-button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      background-color: #444;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      border: none;
-    }
-
-    /* EXPANDABLE */
-    .expandable {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-    }
-
-    .expandable.show {
-      max-height: 2000px;
-      opacity: 1;
-    }
-
-    .expandable .inner-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    /* MODAL STYLE */
-    .grid-item.expanded {
-  position: fixed;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90vw;
-  max-width: 1200px;
-  max-height: 90vh;
-  background: #fff;
-  z-index: 1000;
-  border-radius: 10px;
-  padding: 0; /* IMPORTANT */
-}
-
-  .modal-scroll {
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 25px;
-}
-
-    /* BACKDROP */
-    .modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 900;
-  pointer-events: none;
-}
-
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Santiago Leiva</h1>
-    <p>Junior Programmer / Game Development Student</p>
-    <p>Argentina (Córdoba, Villa María)</p>
-  </header>
+<header>
+  <h1>Santiago Leiva</h1>
+  <p>Junior Programmer / Game Development Student</p>
+  <p>Argentina (Córdoba, Villa María)</p>
+</header>
 
-    <section class="grid-container">
+<section class="grid-container">
 
+  <!-- PROFILE -->
   <article class="grid-item">
-  <h2>Profile</h2>
-  </div>
-  <button class="play-button" onclick="toggleExpand(this, 'profile-more')">▶ View More</button>
-  <div id="profile-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <p>Aspiring programmer and game developer with a strong interest in systems,
-      tools, and interactive experiences. Solid mathematical background and
-      experience working remotely. Currently building a technical portfolio
-      through small games, prototypes, and tools.</p>
-    </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
+    <div class="modal-scroll">
+      <h2>Profile</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'profile-more')">
+        ▶ View More
+      </button>
 
+      <div id="profile-more" class="expandable">
+        <div class="inner-grid">
+          <p>
+            Aspiring programmer and game developer with strong interest in systems,
+            tools, and interactive experiences. Currently building a technical
+            portfolio through small games, prototypes, and tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- EDUCATION -->
   <article class="grid-item">
-  <h2>Education</h2>
-  <button class="play-button" onclick="toggleExpand(this, 'education-more')">▶ View More</button>
+    <div class="modal-scroll">
+      <h2>Education</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'education-more')">
+        ▶ View More
+      </button>
 
-  <div id="education-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <p>
-      <strong>Manuel Belgrano High School – Villa María</strong><br>
-      Bachelor’s Degree in Economics and Administration (2024)
-    </p>
-    <p>
-      <strong>Upcoming:</strong> Programmer Degree (starting March)
-    </p>
-
+      <div id="education-more" class="expandable">
+        <div class="inner-grid">
+          <p>
+            <strong>Manuel Belgrano High School – Villa María</strong><br>
+            Bachelor’s Degree in Economics and Administration (2024)
+          </p>
+          <p>
+            <strong>Upcoming:</strong> Programmer Degree (starting March)
+          </p>
+        </div>
+      </div>
     </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
+  </article>
 
+  <!-- TECH SKILLS -->
   <article class="grid-item">
-  <h2>Technical Skills</h2>
-  <button class="play-button" onclick="toggleExpand(this, 'technical-more')">▶ View More</button>
+    <div class="modal-scroll">
+      <h2>Technical Skills</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'skills-more')">
+        ▶ View More
+      </button>
 
-  <div id="technical-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <ul>
-      <li>Programming: Python, JavaScript, HTML, CSS</li>
-      <li>Game Development: Godot, Unreal Engine</li>
-      <li>Tools: Blender, Git/GitHub, Visual Studio Code</li>
-      <li>Audio / Media: Audacity, LMMS, DaVinci Resolve</li>
-    </ul>
+      <div id="skills-more" class="expandable">
+        <div class="inner-grid">
+          <ul>
+            <li>Python, JavaScript, HTML, CSS</li>
+            <li>Godot, Unreal Engine</li>
+            <li>Blender, Git/GitHub, VS Code</li>
+            <li>Audacity, LMMS, DaVinci Resolve</li>
+          </ul>
+        </div>
+      </div>
     </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
+  </article>
 
+  <!-- PROJECTS -->
   <article class="grid-item">
-  <h2>Projects</h2>
-  <button class="play-button" onclick="toggleExpand(this, 'projects-more')">▶ View More</button>
+    <div class="modal-scroll">
+      <h2>Projects</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'projects-more')">
+        ▶ View More
+      </button>
 
-  <div id="projects-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <p>
-      Small games, prototypes, and tools.<br>
-      See full portfolio:
-      <a href="index.html">Portfolio</a>
-    </p>
+      <div id="projects-more" class="expandable">
+        <div class="inner-grid">
+          <p>
+            Small games, prototypes, and tools.<br>
+            <a href="index.html">View full portfolio</a>
+          </p>
+        </div>
+      </div>
     </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
+  </article>
 
+  <!-- EXPERIENCE -->
   <article class="grid-item">
-  <h2>Experience</h2>
-  <button class="play-button" onclick="toggleExpand(this, 'experience-more')">▶ View More</button>
+    <div class="modal-scroll">
+      <h2>Experience</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'experience-more')">
+        ▶ View More
+      </button>
 
-  <div id="experience-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <p>
-      <strong>Administrative Assistant (Remote)</strong><br>
-      App-based platform
-    </p>
-    <ul>
-      <li>Data handling and basic database tasks</li>
-      <li>Use of digital tools and internal systems</li>
-      <li>Remote communication and task organization</li>
-    </ul>
+      <div id="experience-more" class="expandable">
+        <div class="inner-grid">
+          <p>
+            <strong>Administrative Assistant (Remote)</strong><br>
+            App-based platform
+          </p>
+          <ul>
+            <li>Data handling and basic database tasks</li>
+            <li>Use of digital tools and internal systems</li>
+            <li>Remote communication and task organization</li>
+          </ul>
+        </div>
+      </div>
     </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
+  </article>
 
+  <!-- BACKGROUND -->
   <article class="grid-item">
-  <h2>Background</h2>
-  <button class="play-button" onclick="toggleExpand(this, 'background-more')">▶ View More</button>
+    <div class="modal-scroll">
+      <h2>Background</h2>
+      <button class="play-button"
+              aria-expanded="false"
+              onclick="toggleExpand(this, 'background-more')">
+        ▶ View More
+      </button>
 
-  <div id="background-more" class="expandable">
-    <div class="inner-grid">
-      <!-- Track 1 -->
-      <div>
-      <ul>
-      <li>Argentine Mathematics Olympiad (participant)</li>
-      <li>Radio workshop (3 years – announcer)</li>
-      <li>Programming workshop (Python, JS, HTML)</li>
-      <li>First Aid (CPR & Heimlich)</li>
-    </ul>
+      <div id="background-more" class="expandable">
+        <div class="inner-grid">
+          <ul>
+            <li>Argentine Mathematics Olympiad (participant)</li>
+            <li>Radio workshop (3 years – announcer)</li>
+            <li>Programming workshop (Python, JS, HTML)</li>
+            <li>First Aid (CPR & Heimlich)</li>
+          </ul>
+        </div>
+      </div>
     </div>
-      <!-- Add more tracks here as needed -->
-       
-    </div>
-  </div>
-  
-</article>
-
+  </article>
 
 </section>
 
 <script>
-
-  let savedScrollY = 0;
-
-/* =========================
-   MODAL STATE
-========================= */
+let savedScrollY = 0;
 let active = null;
 
-/* =========================
-   TOGGLE
-========================= */
 function toggleExpand(button, id) {
   const item = button.closest('.grid-item');
   const content = document.getElementById(id);
-  const isOpen = item.classList.contains('expanded');
 
-  if (isOpen) {
+  if (item.classList.contains('expanded')) {
     closeModal();
     return;
   }
 
-  // SAVE SCROLL POSITION
+  // Save page scroll
   savedScrollY = window.scrollY;
 
-  // LOCK BODY SCROLL
+  // Lock page scroll
   document.body.style.position = 'fixed';
   document.body.style.top = `-${savedScrollY}px`;
   document.body.style.width = '100%';
 
+  // Hide other cards
   document.querySelectorAll('.grid-item').forEach(i => {
     if (i !== item) i.style.display = 'none';
   });
 
+  // Activate modal
   item.classList.add('expanded');
   content.classList.add('show');
   button.textContent = '▼ Show Less';
+  button.setAttribute('aria-expanded', 'true');
 
-  createBackdrop();
+  // Reset modal scroll (CRITICAL for mobile)
+  const scrollContainer = item.querySelector('.modal-scroll');
+  if (scrollContainer) {
+    scrollContainer.scrollTop = 0;
+  }
+
+  // Backdrop
+  const backdrop = document.createElement('div');
+  backdrop.className = 'modal-backdrop';
+  backdrop.onclick = closeModal;
+  document.body.appendChild(backdrop);
+
   active = { item, content, button };
 }
 
-/* =========================
-   CLOSE
-========================= */
 function closeModal() {
   if (!active) return;
 
   active.item.classList.remove('expanded');
   active.content.classList.remove('show');
   active.button.textContent = '▶ View More';
+  active.button.setAttribute('aria-expanded', 'false');
 
   document.querySelectorAll('.grid-item').forEach(i => {
     i.style.display = 'block';
   });
 
-  removeBackdrop();
-  active = null;
+  document.querySelector('.modal-backdrop')?.remove();
 
-  // UNLOCK BODY SCROLL
+  // Restore page scroll
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.width = '';
-
-  // RESTORE SCROLL POSITION
   window.scrollTo(0, savedScrollY);
+
+  active = null;
 }
 
-/* =========================
-   BACKDROP
-========================= */
-function createBackdrop() {
-  const backdrop = document.createElement('div');
-  backdrop.className = 'modal-backdrop';
-  backdrop.onclick = closeModal;
-  document.body.appendChild(backdrop);
-}
-
-function removeBackdrop() {
-  const backdrop = document.querySelector('.modal-backdrop');
-  if (backdrop) backdrop.remove();
-}
-
-/* =========================
-   ESC KEY
-========================= */
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
-
-document.addEventListener('mousedown', (e) => {
-  if (!active) return;
-  if (!active.item.contains(e.target)) {
-    closeModal();
-  }
-});
-
 </script>
 
 <footer>
-    <p><a href="contact.html">Contact</a></p>
-    <p>
-  <a href="assets/printable-resume/resume.html" target="_blank">
-    Printable resume (PDF-friendly)
-  </a>
-</p>
-    <p>
-      Built and maintained by El Leiva · 
-      <a href="https://github.com/ElLeiva/el-leiva-portfolio" target="_blank">Source on GitHub</a>
-    </p>
-  </footer>
+  <p><a href="contact.html">Contact</a></p>
+  <p>
+    <a href="assets/printable-resume/resume.html" target="_blank">
+      Printable resume (PDF-friendly)
+    </a>
+  </p>
+  <p>
+    Built and maintained by El Leiva ·
+    <a href="https://github.com/ElLeiva/el-leiva-portfolio" target="_blank">
+      Source on GitHub
+    </a>
+  </p>
+</footer>
 
 </body>
 </html>
-
-
-
