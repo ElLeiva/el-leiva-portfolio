@@ -1,4 +1,12 @@
 /* =====================
+   GLOBAL RESET / SAFETY
+   ===================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* =====================
    BASE TYPOGRAPHY
    ===================== */
 
@@ -30,13 +38,13 @@ section {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
     margin-top: 1rem;
 }
 
 /* =====================
-   CARD (GRID ITEM)
+   CARD
    ===================== */
 
 .grid-item {
@@ -44,11 +52,9 @@ section {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    position: relative;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -57,41 +63,32 @@ section {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Media inside cards */
-.grid-item img,
-.grid-item video,
-.grid-item audio {
-    max-width: 100%;
-    border-radius: 6px;
-}
-
 /* =====================
-   TEXT INSIDE CARDS
+   TEXT
    ===================== */
 
-.grid-item h2,
-.grid-item h3 {
-    margin: 0.25rem 0;
+.grid-item h2 {
+    margin: 0;
 }
 
-.grid-item p {
+.grid-item p,
+.grid-item li {
     margin: 0;
 }
 
 /* =====================
-   BUTTONS
+   BUTTON
    ===================== */
 
 .play-button {
-    align-self: flex-start;
-    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
     background-color: #444;
     color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    width: fit-content;
 }
 
 .play-button:hover {
@@ -99,30 +96,29 @@ section {
 }
 
 /* =====================
-   EXPANDABLE CONTENT
+   EXPANDABLE
    ===================== */
 
 .expandable {
     max-height: 0;
-    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 
 .expandable.show {
-    max-height: 2000px; /* intentionally large */
+    max-height: 2000px;
     opacity: 1;
 }
 
-/* Nested grid inside expanded content */
 .inner-grid {
-    display: grid;
-    gap: 1rem;
     margin-top: 1rem;
+    display: grid;
+    gap: 0.75rem;
 }
 
 /* =====================
-   MODAL STATE
+   MODAL (DESKTOP ONLY)
    ===================== */
 
 .grid-item.expanded {
@@ -130,25 +126,23 @@ section {
     top: 5vh;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
-    max-width: 1200px;
+    width: min(95vw, 1100px);
     max-height: 90vh;
-    background-color: #fff;
+    background: #fff;
     z-index: 1000;
     padding: 0;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
 
-/* Scrollable modal content */
 .modal-scroll {
+    padding: 1.5rem;
     max-height: 90vh;
     overflow-y: auto;
-    padding: 1.5rem;
 }
 
 /* =====================
-   MODAL BACKDROP
+   BACKDROP
    ===================== */
 
 .modal-backdrop {
@@ -166,41 +160,46 @@ footer {
     margin-top: 3rem;
     padding-top: 1rem;
     border-top: 1px solid #ccc;
-    font-size: 0.9rem;
     text-align: center;
+    font-size: 0.9rem;
 }
 
+/* =====================
+   MOBILE OVERRIDES
+   ===================== */
+
 @media (max-width: 600px) {
+
+    body {
+        padding: 0 0.75rem;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
     }
-}
 
-@media (min-width: 601px) and (max-width: 900px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    /* Prevent scroll hijacking on mobile */
-    .modal-scroll {
-        overflow-y: visible;
-        max-height: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .grid-item.expanded .modal-scroll {
-        overflow-y: auto;
-        max-height: 90vh;
-    }
-}
-
-@media (max-width: 600px) {
     .play-button {
         width: 100%;
         text-align: center;
     }
-}
 
+    /* Disable modal behavior on mobile */
+    .grid-item.expanded {
+        position: static;
+        transform: none;
+        width: auto;
+        max-height: none;
+        box-shadow: none;
+        padding: 1rem;
+    }
+
+    .modal-scroll {
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+    }
+
+    .modal-backdrop {
+        display: none;
+    }
+}
