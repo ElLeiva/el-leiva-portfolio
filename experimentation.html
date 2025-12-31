@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago Leiva — Resume</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Santiago Leiva</h1>
+  <p>Junior Programmer / Game Development Student</p>
+  <p>Argentina (Córdoba, Villa María)</p>
+</header>
+
+<section class="grid-container">
+
+  <!-- PROFILE -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Profile</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'profile-more')">▶ View More</button>
+      <div id="profile-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <p>
+            Aspiring programmer and game developer with strong interest in systems,
+            tools, and interactive experiences. Currently building a technical
+            portfolio through small games, prototypes, and tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- EDUCATION -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Education</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'education-more')">▶ View More</button>
+      <div id="education-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <p><strong>Manuel Belgrano High School</strong> — Economics & Administration (2024)</p>
+          <p><strong>Upcoming:</strong> Programmer Degree (March)</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- SKILLS -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Technical Skills</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'skills-more')">▶ View More</button>
+      <div id="skills-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <ul>
+            <li>Python, JavaScript, HTML, CSS</li>
+            <li>Godot, Unreal Engine</li>
+            <li>Blender, Git/GitHub, VS Code</li>
+            <li>Audacity, LMMS, DaVinci Resolve</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECTS -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Projects</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'projects-more')">▶ View More</button>
+      <div id="projects-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <p>
+            Small games, prototypes, and tools.<br>
+            <a href="https://elleiva.github.io/el-leiva-portfolio/">See full portfolio</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- EXPERIENCE -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Experience</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'experience-more')">▶ View More</button>
+      <div id="experience-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <p><strong>Administrative Assistant (Remote)</strong><br>App-based platform</p>
+          <ul>
+            <li>Data handling and basic database tasks</li>
+            <li>Use of digital tools and internal systems</li>
+            <li>Remote communication and task organization</li>
+          </ul>
+        </div>
+        <button class="close-bottom mobile-only" onclick="closeMobile(this)">
+  Close
+</button>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- BACKGROUND -->
+  <article class="grid-item">
+    <div class="modal-scroll">
+      <h2>Background</h2>
+      <button class="play-button" onclick="toggleExpand(this, 'background-more')">▶ View More</button>
+      <div id="background-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <ul>
+            <li>Argentine Mathematics Olympiad (participant)</li>
+            <li>Radio workshop (3 years – announcer)</li>
+            <li>Programming workshop (Python, JS, HTML)</li>
+            <li>First Aid (CPR & Heimlich)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+    <article class="grid-item">
+      <h2>Surebu – Concept Art</h2>
+      <img class="cover-image"
+     src="assets/images/surebu-character1.jpg"
+     alt="Surebu Character Concept">
+
+      <button class="play-button" onclick="toggleExpand(this, 'surebu-more')">▶ View More</button>
+      <div id="surebu-more" class="expandable">
+        <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+        <div class="modal-scroll">
+        <div class="inline-title"></div>
+        <div class="inner-grid">
+          <img class="expanded-cover" alt="">
+          <!-- other images / text -->
+           <img class="expanded-cover" src="assets/images/surebu-character1.jpg">
+           <img class="expanded-cover" src="assets/images/surebu-character1.jpg">
+        </div>
+        </div>
+        <button class="close-bottom mobile-only" onclick="closeMobile(this)">
+  Close
+</button>
+
+
+      </div>
+    
+  </article>
+
+  <article class="grid-item">
+  <div class="modal-scroll">
+    <h2>Dragon Scales — Main Theme</h2>
+
+    <!-- Audio cover (like image cover) -->
+    <div class="cover-block">
+  <audio class="cover-audio" controls loop>
+    <source src="assets/music/Dragon Scale Main Theme V1.6 (Approved) more volume.mp3" type="audio/mpeg">
+  </audio>
+
+  <p class="audio-desc-top">
+    <strong>Use case:</strong> Main / narrative theme for an indie project.
+    Designed to support a mysterious, restrained atmosphere.
+  </p>
+</div>
+
+
+    <button class="play-button"
+      onclick="toggleExpand(this, 'dragon-scales-more')">
+      ▶ View More
+    </button>
+
+    <!-- EXPANDED -->
+    <div id="dragon-scales-more" class="expandable">
+      <button class="close-x desktop-only" onclick="closeModal()">✕</button>
+      <div class="inline-title"></div>
+
+      <div class="inner-grid">
+
+        <!-- MAIN TRACK -->
+        <div class="audio-block">
+          <audio class="expanded-audio" controls loop></audio>
+
+          <p>
+            <strong>Use case:</strong> Main narrative theme.
+            Loop-safe and scalable for adaptive systems.
+          </p>
+
+          <ul>
+            <li>Loopable</li>
+            <li>Scale-consistent</li>
+            <li>Adaptable instrumentation</li>
+          </ul>
+        </div>
+
+        <!-- RELATED TRACK -->
+        <div class="audio-block">
+          <h2>Lullaby Version</h2>
+          <audio controls loop>
+            <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+          </audio>
+
+          <p>
+            <strong>Use case:</strong> Lullaby variation.
+            Calm, broken, incomplete mood.
+          </p>
+
+          <ul>
+            <li>Loopable</li>
+            <li>Variation-ready</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <button class="close-bottom mobile-only" onclick="closeMobile(this)">
+        Close
+      </button>
+    </div>
+  </div>
+</article>
+
+<div class="modal">
+  <div class="modal-content">
+
+    <!-- Main song -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/p06sUOThzq8?si=8qzkpCkNuN3YtG_x"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Related songs -->
+    <div class="inner-grid">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+</section>
+
+<script>
+let savedScrollY = 0;
+let active = null;
+
+function isMobile() {
+  return window.matchMedia('(max-width: 600px)').matches;
+}
+
+function toggleExpand(button, id) {
+  const item = button.closest('.grid-item');
+  const content = document.getElementById(id);
+  const isOpen = content.classList.contains('show');
+  const title = item.querySelector('h2');
+  const inlineTitle = content.querySelector('.inline-title');
+
+  /* ===== MOBILE ===== */
+  if (isMobile()) {
+
+    // Close others
+    document.querySelectorAll('.expandable.show').forEach(exp => {
+      if (exp !== content) {
+        exp.classList.remove('show');
+        const parent = exp.closest('.grid-item');
+        parent.querySelector('h2').style.display = '';
+        parent.querySelector('.play-button').textContent = '▶ View More';
+      }
+    });
+
+    // Close self
+    if (isOpen) {
+      content.classList.remove('show');
+      button.textContent = '▶ View More';
+      title.style.display = '';
+      return;
+    }
+
+    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    requestAnimationFrame(() => {
+      content.classList.add('show');
+      button.textContent = '▼ Show Less';
+      inlineTitle.textContent = title.textContent;
+      title.style.display = 'none';
+    });
+
+    return;
+  }
+
+  /* ===== DESKTOP ===== */
+  if (isOpen) {
+    closeModal();
+    return;
+  }
+
+  if (active) closeModal();
+
+  savedScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.style.width = '100%';
+
+  document.querySelectorAll('.grid-item').forEach(i => {
+    if (i !== item) i.style.display = 'none';
+  });
+
+  inlineTitle.textContent = title.textContent;
+  title.style.display = 'none';
+
+  item.classList.add('expanded');
+  content.classList.add('show');
+  button.textContent = '▼ Show Less';
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'modal-backdrop';
+  backdrop.onclick = closeModal;
+  document.body.appendChild(backdrop);
+  
+  const cover = item.querySelector('.cover-image');
+const expandedCover = content.querySelector('.expanded-cover');
+
+if (cover && expandedCover) {
+  expandedCover.src = cover.src;
+  expandedCover.alt = cover.alt;
+}
+
+// AUDIO COVER → EXPANDED
+const coverAudio = item.querySelector('.cover-audio');
+const expandedAudio = content.querySelector('.expanded-audio');
+
+if (coverAudio && expandedAudio) {
+  const src = coverAudio.querySelector('source')?.src;
+  if (src) {
+    expandedAudio.innerHTML = `
+      <source src="${src}" type="audio/mpeg">
+    `;
+    expandedAudio.load();
+expandedAudio.style.display = 'none';
+expandedAudio.offsetHeight; // force reflow
+expandedAudio.style.display = '';
+
+  }
+}
+
+
+  active = { item, content, button, title };
+}
+
+function closeModal() {
+  if (!active) return;
+
+  active.content.classList.remove('show');
+  active.item.classList.remove('expanded');
+  active.button.textContent = '▶ View More';
+  active.title.style.display = '';
+
+  document.querySelectorAll('.grid-item').forEach(i => {
+    i.style.display = 'block';
+  });
+
+  document.querySelector('.modal-backdrop')?.remove();
+
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, savedScrollY);
+
+  const expandedCover = active.content.querySelector('.expanded-cover');
+if (expandedCover) expandedCover.src = '';
+
+const expandedAudio = active.content.querySelector('.expanded-audio');
+if (expandedAudio) {
+  expandedAudio.pause();
+  expandedAudio.innerHTML = '';
+}
+
+  active = null;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+let touchStartY = 0;
+let touchCurrentY = 0;
+let swipeTarget = null;
+
+document.addEventListener('touchstart', e => {
+  if (!isMobile()) return;
+
+  const expanded = document.querySelector('.expandable.show');
+  if (!expanded) return;
+
+  swipeTarget = expanded.closest('.modal-scroll');
+  if (!swipeTarget) return;
+
+  touchStartY = e.touches[0].clientY;
+  touchCurrentY = touchStartY;
+}, { passive: true });
+
+document.addEventListener('touchmove', e => {
+  if (!isMobile() || !swipeTarget) return;
+  touchCurrentY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchend', () => {
+  if (!isMobile() || !swipeTarget) return;
+
+  const deltaY = touchCurrentY - touchStartY;
+
+  // Swipe DOWN threshold
+  if (deltaY > 120) {
+    closeModal();
+  }
+
+  swipeTarget = null;
+});
+
+function closeMobile(btn) {
+  const content = btn.closest('.expandable');
+  if (!content) return;
+
+  content.classList.remove('show');
+
+  const item = content.closest('.grid-item');
+  const title = item.querySelector('h2');
+  const button = item.querySelector('.play-button');
+
+  title.style.display = '';
+  button.textContent = '▶ View More';
+}
+
+document.addEventListener('click', e => {
+  if (e.target.closest('audio')) {
+    e.stopPropagation();
+  }
+});
+
+function pauseAllAudio(except = null) {
+  document.querySelectorAll('audio').forEach(audio => {
+    if (audio !== except) {
+      audio.pause();
+    }
+  });
+}
+
+document.addEventListener('play', e => {
+  if (e.target.tagName === 'AUDIO') {
+    pauseAllAudio(e.target);
+  }
+}, true);
+
+
+</script>
+
+<footer>
+  <p><a href="contact.html">Contact</a></p>
+  <p>
+    Built and maintained by El Leiva ·
+    <a href="https://github.com/ElLeiva/el-leiva-portfolio" target="_blank">
+      Source on GitHub
+    </a>
+  </p>
+</footer>
+
+</body>
+</html>
+
+<body>
+
+  <h1>Audio Design & OST</h1>
+
+  <p>
+    Game-focused music and audio created to support atmosphere, pacing,
+    and player emotion. Tracks are designed as reusable loops or themes
+    rather than standalone songs.
+  </p>
+  
+<section class="grid-container">
+
+  <!-- PROJECT 1 -->
+  <article class="grid-item" id="dragon-scales">
+  <div class="modal-scroll"></div>
+  <!-- EVERYTHING that should scroll goes here -->
+  <h2>Dragon Scales — Main Theme</h2>
+  <audio controls loop>
+    <source src="assets/music/Dragon Scale Main Theme V1.6 (Approved) more volume.mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> Main / narrative theme for an indie project.
+    Designed to support a mysterious, restrained atmosphere.
+  </p>
+
+  <ul>
+    <li>Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid">
+      <!-- Track 1 -->
+      <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div>
+
+      <!-- Track 2 -->
+      <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div>
+
+      <!-- Add more tracks here as needed -->
+       
+    </div>
+  </div>
+  
+</article>
+
+<article class="grid-item" id="cinematic-theme">
+  <h2>Cinematic Theme — Experiment</h2>
+  <audio controls loop>
+    <source src="assets/music/Cool synth v1.4 (Approved).mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> none yet, made for an epic / cinematic atmosphere.
+  </p>
+
+  <ul>
+    <li>Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <!-- <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid"> -->
+      <!-- Track 1 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Track 2 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Add more tracks here as needed -->
+<!--        
+    </div>
+  </div> -->
+  
+</article>
+
+<article class="grid-item" id="lullaby-theme">
+  <h2>
+    Lullaby Theme — Experiment</h2>
+  <audio controls loop>
+    <source src="assets/music/Lullaby v2.0 Also credit song.mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> Lullaby, ending theme, made for a slow, ending, conclusion atmosphere.
+  </p>
+
+  <ul>
+    <li>Not Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <!-- <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid"> -->
+      <!-- Track 1 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Track 2 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Add more tracks here as needed -->
+<!--        
+    </div>
+  </div> -->
+  
+</article>
+
+<article class="grid-item" id="race-chase-theme">
+  <h2>
+    Race-chase Theme — Experiment</h2>
+  <audio controls loop>
+    <source src="assets/music/Techno v1.1.mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> Race-Chase theme, made for an urgency, fast paced atmosphere.
+  </p>
+
+  <ul>
+    <li>Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <!-- <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid"> -->
+      <!-- Track 1 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Track 2 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Add more tracks here as needed -->
+<!--        
+    </div>
+  </div> -->
+  
+</article>
+
+<article class="grid-item" id="cave-theme">
+  <h2>
+    Cave Theme — Experiment</h2>
+  <audio controls loop>
+    <source src="assets/music/Video-Game Cave V1.3.mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> Cave theme, made for a cold and empty atmosphere.
+  </p>
+
+  <ul>
+    <li>Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <!-- <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid"> -->
+      <!-- Track 1 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Track 2 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Add more tracks here as needed -->
+<!--        
+    </div>
+  </div> -->
+  
+</article>
+
+<article class="grid-item" id="menu-theme">
+  <h2>
+    Menu Theme — Experiment</h2>
+  <audio controls loop>
+    <source src="assets/music/sad piano and guitar V1.1.mp3" type="audio/mpeg">
+  </audio>
+
+  <p>
+    <strong>Use case:</strong> Menu theme, made for a calm yet not repetetive atmosphere.
+  </p>
+
+  <ul>
+    <li>Not Loopable</li>
+    <li>Scale-consistent for variation</li>
+    <li>Adaptable instrumentation</li>
+  </ul>
+
+  <!-- <button class="play-button" onclick="toggleExpand(this, 'dragon-scales-more')">▶ View More</button>
+
+  <div id="dragon-scales-more" class="expandable">
+    <div class="inner-grid"> -->
+      <!-- Track 1 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Lullaby v3.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Lullaby version using Main / narrative theme.
+          Designed to support a calming, incomplete, broken atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Track 2 -->
+      <!-- <div>
+        <audio controls loop>
+          <source src="assets/music/Dragon Scale Cave V1.0.mp3" type="audio/mpeg">
+        </audio>
+        <p>
+          <strong>Use case:</strong> Cave theme, unapproved, based on Main theme.
+          Designed to support a cold, empty atmosphere.
+        </p>
+        <ul>
+          <li>Not loopable</li>
+          <li>Scale-consistent for variation</li>
+          <li>Adaptable instrumentation</li>
+        </ul>
+      </div> -->
+
+      <!-- Add more tracks here as needed -->
+<!--        
+    </div>
+  </div> -->
+  
+</article>
+
+</section>
+
+  <!-- WORKFLOW -->
+  <section>
+    <h2>Workflow</h2>
+    <ul>
+      <li>Tracks built using both MIDI and samples for flexible adaptation.</li>
+      <li>Instrumentation can be swapped to match different aesthetics.</li>
+      <li>Use of EQ and filters for clarity and mix cleanliness.</li>
+      <li>Rapid loop prototyping: 1–2 minutes per hour when focused.</li>
+    </ul>
+  </section>
+
+  <!-- APPROACH -->
+  <section>
+    <h2>Approach</h2>
+    <p>
+      I combine reference-based direction (scale, BPM, instrumentation)
+      with controlled freestyle exploration to shape emotional tone
+      while remaining production-ready for games.
+    </p>
+
+    <footer>
+      <p><a href="projects.html">Back to projects</a></p>
+      <p><a href="index.html">Home</a></p>
+    <p>
+      Built and maintained by El Leiva · 
+      <a href="https://github.com/yourusername/your-repo" target="_blank">Source on GitHub</a>
+    </p>
+  </footer>
+
+</body>
