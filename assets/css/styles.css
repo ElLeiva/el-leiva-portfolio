@@ -111,11 +111,6 @@ section {
     opacity: 1;
 }
 
-.inner-grid {
-    margin-top: 1rem;
-    display: grid;
-    gap: 0.75rem;
-}
 
 /* =====================
    MODAL (DESKTOP ONLY)
@@ -203,3 +198,315 @@ footer {
         display: none;
     }
 }
+
+.close-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hide desktop-only UI on mobile */
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 601px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* COVER IMAGE BEHAVIOR */
+.cover-image {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* hidden when expanded */
+.grid-item.expanded .cover-image {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* expanded version */
+.expanded-cover {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.grid-item.expanded img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* VISIBILITY HELPERS */
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+@media (max-width: 600px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+}
+
+/* BOTTOM CLOSE BUTTON (MOBILE) */
+.close-bottom {
+  position: sticky;
+  bottom: 12px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+@media (max-width: 600px) {
+
+  /* Allow expanded content to breathe */
+  .expandable.show {
+    overflow: visible;
+  }
+
+}
+
+.close-bottom {
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 600px) {
+
+  .expandable.show {
+    max-height: none;
+    overflow-y: auto;
+    padding-bottom: 80px; /* space for sticky close button */
+  }
+
+}
+
+.close-bottom {
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 601px) {
+
+  .grid-item.expanded .inner-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+    gap: 1rem;
+  }
+
+}
+
+/* AUDIO */
+.cover-audio,
+.expanded-audio {
+  width: 100%;
+}
+
+.audio-block {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Optional polish */
+audio {
+  border-radius: 6px;
+}
+
+audio {
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.modal-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.grid-item.expanded .cover-block {
+  display: none;
+}
+
+.grid-item.expanded .inline-title {
+  margin-top: 0;
+}
+
+.grid-item.expanded .modal-scroll {
+  padding-top: 1rem; /* was 1.5rem */
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.music-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.video-wrapper,
+.inner-grid iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .expandable.show ~ .cover-block,
+  .expandable.show + .cover-block {
+    display: none;
+  }
+
+  .grid-item .expandable.show + .play-button {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-item .expandable.show {
+    margin-top: 1rem;
+  }
+
+  .grid-item .expandable.show ~ * {
+    display: none;
+  }
+}
+
+/* =====================
+   MOBILE: HIDE COVER WHEN EXPANDED
+   ===================== */
+@media (max-width: 600px) {
+
+  /* Hide cover video + description when expanded */
+  .grid-item .expandable.show ~ .cover-block,
+  .grid-item .expandable.show ~ .cover-block * {
+    display: none !important;
+  }
+
+  /* Also hide description text explicitly (safety) */
+  .grid-item .expandable.show ~ .cover-block .audio-desc-top {
+    display: none !important;
+  }
+}
+
+/* =====================
+   COVER VIDEO: FLAT PREVIEW
+   ===================== */
+.cover-block .video-wrapper {
+  aspect-ratio: 16 / 6; /* flatter than 16:9 */
+  max-height: 180px;
+}
+
+/* =====================
+   EXPANDED VIDEO: DESKTOP CONTROL
+   ===================== */
+@media (min-width: 601px) {
+
+  .grid-item.expanded .video-wrapper {
+    aspect-ratio: 16 / 8; /* cinematic, less tall */
+    max-height: 320px;
+  }
+
+  .grid-item.expanded .expanded-player {
+    max-height: 320px;
+  }
+}
+
+.video-wrapper {
+  background: #000;
+}
+
+/* =====================
+   MOBILE: HIDE PREVIEW WHEN EXPANDED
+   ===================== */
+@media (max-width: 600px) {
+
+  /* When this card has an open expandable */
+  .grid-item:has(.expandable.show) .cover-block,
+  .grid-item:has(.expandable.show) .audio-desc-top {
+    display: none !important;
+  }
+
+  /* Optional: hide the View More button itself */
+  .grid-item:has(.expandable.show) .play-button {
+    display: none;
+  }
+}
+
+.close-top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  padding: 12px;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+}
+
+/* =====================
+   FOCUS ZOOM OVERLAY
+   ===================== */
+
+.focus-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.focus-overlay img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: focusZoomIn 0.25s ease;
+}
+
+@keyframes focusZoomIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Cursor hint */
+.focus-zoom {
+  cursor: zoom-in;
+}
+
